@@ -1,0 +1,128 @@
+Хорошие ссылки:
+http://www.openvim.com/tutorial.html
+http://ru.wikibooks.org/wiki/Vim
+http://blog.interlinked.org/tutorials/vim_tutorial.html
+
+Плугины, которые я юзаю:
+code_complete.vim (автокомплит по Ctrl+p)
+taglist.vim (по F4 показывает типы, классы, методы и т.п.)
+sudo apt-get install exuberant-ctags (переход по Ctrl+Click и индексация)
+
+Самые частые команды:
+:w
+:<smth>! - сделать без сохранения
+i
+Esc
+
+u - отмена
+Ctrl+r - redo)
+
+. - повторить предыдущее действие (напр. i, что-нибудь ввел, Esc, .)
+
+:e file — открыть файл (можно новый, каталог должен существовать)
+:e . — открыть текущую директорию
+(часто юзаю Alt+t - открыть файл из директории в новой вкладке, Alt+p - превью)
+:q — выход
+:wq — выход с сохранением (:wa, :qa, :wqa - сохраанить всё, закрыть всё)
+:se <свойство> - установить свойство редактора или файла
+
+:! cmd - выполнить команду в shell
+
+/<smth> или ? - поискать
+n, N - вниз вверх по тексту
+Если нажать на слове # или * будет искать целиком слово
+
+v - визуальное выдедение
+y — копировать выделенное
+d — вырезать выделенное
+yy, dd - соотв. действия с целой строкой
+p — вставить после курсора
+P — вставить до курсора
+еще есть именованные буферы
+например
+"byy , "bp - скопирует строку в буфер b и вставит из буфера b
+
+Вот тут хорошее описание
+http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know
+
+Макросы
+q<буфер> - начать записывать макрос в буфер
+q снова - закончить запись
+@<буфер> - выполнить макрос
+Пример:
+qf
+i
+Hallo
+Esc
+yy
+p
+q
+@f
+
+Табы, вкладки
+vim -p files - открыть файлы во вкладках
+:tabnew [файл или каталог]
+:tabmove [желаемая позиция]
+:tabclose или :q
+gt, gT - вперед назад, [цифра]gt - перейти на вкладку номер
+
+
+Сохранить сессию (табы, открытые файлы, настройки, всё)
+:mksession! ~/tmp/press.vim
+
+Восстановить сессию (лучше открывать из того же корневого каталога, что и сохранял)
+:source ~/tmp/press.vim
+
+To switch from a header to a source you can do:
+:e %<.c
+
+:ls - посмотреть все файлы, которые были открыты
+:b<num> - открыть файл из предыдущего списка
+
+Ctrl+n или Ctrl+p – автодополнение текста
+
+:%s/string_1/string_2 – поиск и замена
+:call command – вызов команды
+Ctrl+w v – разделить окно по вертикали
+Ctrl+w s – разделить окно по горизонтали
+Ctrl+w c – закрыть окно
+Ctrl+w стрелка – навигация по окнам
+
+ctrl-w_ctrl-x and/or :h ctrl-w_ctrl-r. These commands allow you to exchange or rotate windows in the current layout.
+CTRL-W HJKL keys are most useful when manipulating windows.
+
+
+ctags: (переход по индексированным классам, методам)
+Индексирует все, от sh до java
+http://amix.dk/blog/post/19329
+
+C-] - go to definition
+C-T - Jump back from the definition.
+C-W C-] - Open the definition in a horizontal split
+C-\ - Open the definition in a new tab
+A-] - Open the definition in a vertical split
+Ctrl-Left_MouseClick - Go to definition
+Ctrl-Right_MouseClick - Jump back from definition
+g C-] is very useful. It opens a quick dialog to select one between multiple definitions.
+set tags=./tags;/
+
+Vim folding commands (не обязательно)
+:se foldmethod=syntax - включает сворачивание на основе синтаксиса языка
+http://www.linux.com/learn/tutorials/442438-vim-tips-folding-fun
+zf#j creates a fold from the cursor down # lines.
+zf/string creates a fold from the cursor to string .
+zj moves the cursor to the next fold.
+zk moves the cursor to the previous fold.
+zo opens a fold at the cursor.
+zO opens all folds at the cursor.
+zc closes fold under cursor.
+zm increases the foldlevel by one.
+zM closes all open folds.
+zr decreases the foldlevel by one.
+zR decreases the foldlevel to zero -- all folds will be open.
+zd deletes the fold at the cursor.
+zE deletes all folds.
+[z move to start of open fold.
+]z move to end of open fold.
+
+

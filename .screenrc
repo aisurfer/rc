@@ -1,0 +1,31 @@
+term xterm
+shell -${SHELL}
+defscrollback 1024
+startup_message off
+termcap XT true
+
+# from http://en.gentoo-wiki.com/wiki/Screen
+multiuser on
+vbell off
+
+setenv EDITOR /usr/bin/vim
+
+# open terminals in named tabs
+screen -t compile 3 mc
+screen -t "exec"  4 mc
+screen -t result  5 mc
+screen -t dir     6 mc
+screen -t dir     7 mc
+screen -t edit2   2 mc
+screen -t edit1   1 mc
+screen -t dir     0 mc
+
+#change the hardstatus settings to give an window list at the bottom of the
+##screen, with the time and date and with the current window highlighted
+hardstatus alwayslastline 
+#hardstatus string '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+#caption always '%{= dg} %H %{G}| %{B}%l %{G}|%=%?%{d}%-w%?%{r}(%{d}%n %t%? {%u} %?%{r})%{d}%?%+w%?%=%{G}| %{B}%M %d %c:%s '
+
+
