@@ -17,13 +17,13 @@ set noequalalways
 " русские слова)
 set iskeyword=@,48-57,_,192-255
 " задать размер табуляции в четыре пробела
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 syntax on
 set mouse=a
 set ttymouse=xterm2
 
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set backspace=indent,eol,start
 
 colorscheme peachpuff 
@@ -34,6 +34,8 @@ filetype on
 filetype indent on
 filetype plugin on
 set hlsearch
+
+"set runtimepath+=~/.vim/vim-mql5/ftdetect,~/.vim/vim-mql5/syntax
 
 "чтобы netrw открывал файл и оставлял курсор в проводнике
 let g:netrw_preview = 1
@@ -123,7 +125,7 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
 map <F4> :TlistToggle<cr>
 
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --python-kinds=-i --fields=+iaS --extra=+q --exclude=*.js .<CR>
+map <F8> :!/usr/bin/ctags -R --languages=+JavaScript --c++-kinds=+p --python-kinds=-i --fields=+iaS --extra=+q --exclude=\*.next\* .<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
